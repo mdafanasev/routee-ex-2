@@ -4,6 +4,7 @@
     "api": "apps/api",
     "api-interfaces": "libs/api-interfaces",
     "serp": "apps/serp",
-    "serp-e2e": "apps/serp-e2e"
+    "serp-e2e": "apps/serp-e2e",
+    "utils": "libs/utils"
   }
 }

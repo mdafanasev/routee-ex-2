@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { QueryService } from '../query/query.service';
 
 @Component({
   selector: 'serp-home',
@@ -6,4 +7,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./home.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent {}
+export class HomeComponent {
+  public readonly query$ = this.queryService.value$;
+
+  constructor(private readonly queryService: QueryService) {}
+}

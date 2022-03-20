@@ -1,0 +1,23 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <input
+    type="text"
+    data-test-id="serp-query__input"
+    [formControl]="queryControl"
+  />
+  <button
+    type="button"
+    data-test-id="serp-query__reset"
+    *ngIf="isFormValid"
+    (click)="dropQuery()"
+  >
+    Reset
+  </button>
+  <button
+    type="button"
+    data-test-id="serp-query__submit"
+    [disabled]="!isFormValid"
+    (click)="submit()"
+  >
+    Search
+  </button>
+</form>

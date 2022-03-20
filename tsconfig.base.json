@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@routee-serp/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@routee-serp/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@routee-serp/utils": ["libs/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
