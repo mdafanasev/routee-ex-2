@@ -2,7 +2,7 @@
   "projectType": "application",
   "root": "apps/serp",
   "sourceRoot": "apps/serp/src",
-  "prefix": "routee-serp",
+  "prefix": "serp",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",

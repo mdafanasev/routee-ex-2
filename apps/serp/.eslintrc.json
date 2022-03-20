@@ -21,7 +21,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "routee-serp",
+            "prefix": "serp",
             "style": "kebab-case"
           }
         ]
