@@ -1,15 +1,19 @@
-import { Controller, Get } from '@nestjs/common';
+import { BadRequestException, Controller, Get, Query } from '@nestjs/common';
 
-import { Message } from '@routee-serp/api-interfaces';
+import { SearchResult } from '@routee-serp/api-interfaces';
+import { Observable } from 'rxjs';
 
-import { AppService } from './app.service';
+import { SerpapiService } from './serpapi/serpapi.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly serpApi: SerpapiService) {}
 
-  @Get('hello')
-  getData(): Message {
-    return this.appService.getData();
+  @Get('search')
+  getData(@Query('q') query: string): Observable<SearchResult[]> {
+    if (!query) {
+      throw new BadRequestException('Missing query parameter');
+    }
+    return this.serpApi.getSearchResults(query);
   }
 }
