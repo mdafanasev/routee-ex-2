@@ -1,10 +1,17 @@
-<div data-test-id="serp-search-entry__title">{{ data.title }}</div>
-<a [href]="data.link" data-test-id="serp-search-entry__link">{{
-  data.displayedLink
-}}</a>
-<div data-test-id="serp-search-entry__snippet">{{ data.snippet }}</div>
 <img
+  class="image"
   data-test-id="serp-search-entry__thumb"
   [src]="data.thumbnail"
   [alt]="data.title"
 />
+<div class="content">
+  <div class="title" data-test-id="serp-search-entry__title">
+    {{ data.title }}
+  </div>
+  <a class="link" [href]="data.link" data-test-id="serp-search-entry__link">{{
+    data.displayedLink
+  }}</a>
+  <div class="snippet" data-test-id="serp-search-entry__snippet">
+    {{ data.snippet }}
+  </div>
+</div>

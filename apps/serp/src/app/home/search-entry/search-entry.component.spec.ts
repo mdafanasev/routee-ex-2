@@ -53,18 +53,18 @@ describe('SearchEntryComponent', () => {
     expect(true).toBeTruthy();
   });
   it('should contain title', () => {
-    expect(po.title?.textContent).toBe(DATA.title);
+    expect(po.title?.textContent).toContain(DATA.title);
   });
   it('should contain link', () => {
-    expect(po.link?.textContent).toBe(DATA.displayedLink);
+    expect(po.link?.textContent).toContain(DATA.displayedLink);
   });
   it('should contain link with correct href', () => {
-    expect(po.link?.href).toBe(DATA.link);
+    expect(po.link?.href).toContain(DATA.link);
   });
   it('should contain snippet', () => {
-    expect(po.snippet?.textContent).toBe(DATA.snippet);
+    expect(po.snippet?.textContent).toContain(DATA.snippet);
   });
   it('should contain thumbnail', () => {
-    expect(po.thumb.src).toBe(DATA.thumbnail);
+    expect(po.thumb.src).toContain(DATA.thumbnail);
   });
 });

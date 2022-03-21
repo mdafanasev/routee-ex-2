@@ -15,10 +15,7 @@ const DATA: NewsEntry = {
 
 class NewsCardPageObject extends PageObject<NewsCardComponent> {
   public get title() {
-    return this.getByAutomationId('serp-news-card__title');
-  }
-  public get link() {
-    return this.getByAutomationId('serp-news-card__link') as HTMLLinkElement;
+    return this.getByAutomationId('serp-news-card__title') as HTMLLinkElement;
   }
   public get snippet() {
     return this.getByAutomationId('serp-news-card__snippet');
@@ -56,24 +53,21 @@ describe('NewsCardComponent', () => {
     expect(true).toBeTruthy();
   });
   it('should contain title', () => {
-    expect(po.title?.textContent).toBe(DATA.title);
-  });
-  it('should contain link', () => {
-    expect(po.link?.textContent).toBe(DATA.link);
+    expect(po.title?.textContent).toContain(DATA.title);
   });
   it('should contain link with correct href', () => {
-    expect(po.link?.href).toBe(DATA.link);
+    expect(po.title?.href).toBe(DATA.link);
   });
   it('should contain snippet', () => {
-    expect(po.snippet?.textContent).toBe(DATA.snippet);
+    expect(po.snippet?.textContent).toContain(DATA.snippet);
   });
   it('should contain thumbnail', () => {
-    expect(po.thumb.src).toBe(DATA.thumbnail);
+    expect(po.thumb.src).toContain(DATA.thumbnail);
   });
   it('should contain date', () => {
-    expect(po.date?.textContent).toBe(DATA.date);
+    expect(po.date?.textContent).toContain(DATA.date);
   });
   it('should contain source', () => {
-    expect(po.source?.textContent).toBe(DATA.source);
+    expect(po.source?.textContent).toContain(DATA.source);
   });
 });

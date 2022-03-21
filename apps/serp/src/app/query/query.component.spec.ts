@@ -82,12 +82,12 @@ describe('QueryComponent', () => {
     po.setInputValue('foo');
     expect(po.submitButton.disabled).toBeFalsy();
   });
-  it('should not show drop button until query is empty', () => {
-    expect(po.resetButton).toBeFalsy();
+  it('should disable drop button until query is empty', () => {
+    expect(po.resetButton?.disabled).toBeTruthy();
   });
-  it('should show drop button when query is valid', () => {
+  it('should enable drop button when query is valid', () => {
     po.setInputValue('foo');
-    expect(po.resetButton).toBeTruthy();
+    expect(po.resetButton?.disabled).toBeFalsy();
   });
   it('should call service on submit', () => {
     po.setInputValue('foo');

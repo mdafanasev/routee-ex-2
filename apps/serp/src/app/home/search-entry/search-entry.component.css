@@ -1,0 +1,20 @@
+:host {
+  display: grid;
+  grid-template-columns: 96px auto;
+  gap: 24px;
+  padding: 24px;
+}
+.image {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+}
+.link {
+  display: block;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+}
+.snippet {
+  color: var(--color-fg-2);
+  font: var(--font-small);
+}

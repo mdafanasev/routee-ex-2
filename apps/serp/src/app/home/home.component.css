@@ -1,0 +1,13 @@
+.query {
+  padding: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content {
+  padding: 32px;
+  background-color: var(--color-bg-2);
+}
+.error {
+  color: var(--color-error);
+}

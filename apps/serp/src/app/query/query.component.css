@@ -1,0 +1,55 @@
+.input {
+  display: block;
+  width: 350px;
+  height: 56px;
+  background: none;
+  border: 2px solid var(--color-fg-2);
+  border-radius: 4px;
+  padding: 0 24px;
+  color: var(--color-fg-2);
+  font: var(--font-small);
+  outline: none;
+  opacity: 0.7;
+  box-sizing: border-box;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.input:focus {
+  opacity: 1;
+}
+
+.buttons {
+  width: 350px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.submit {
+  display: block;
+  height: 48px;
+  background-color: var(--color-accent);
+  color: var(--color-fg-1);
+  border-radius: 24px;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+.submit:disabled {
+  opacity: 0.5;
+}
+.drop {
+  display: block;
+  width: 100%;
+  height: 48px;
+  background: none;
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+  border-radius: 24px;
+  cursor: pointer;
+}
+.drop:disabled {
+  opacity: 0.5;
+}

@@ -1,0 +1,23 @@
+.nav {
+  display: block;
+  background-color: var(--color-bg-2);
+}
+.nav-list {
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-link {
+  display: block;
+  padding: 16px 32px;
+  color: inherit;
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.7;
+}
+.nav-link--active {
+  opacity: 1;
+  border-bottom: 2px solid currentColor;
+}

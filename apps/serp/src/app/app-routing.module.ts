@@ -10,10 +10,11 @@ import { RouterModule } from '@angular/router';
           import('./news/news.module').then((m) => m.NewsModule),
       },
       {
-        path: '',
+        path: 'home',
         loadChildren: () =>
           import('./home/home.module').then((m) => m.HomeModule),
       },
+      { path: '**', redirectTo: 'home' },
     ]),
   ],
   exports: [RouterModule],

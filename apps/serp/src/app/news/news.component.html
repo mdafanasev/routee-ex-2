@@ -1,12 +1,20 @@
-<serp-query></serp-query>
-<div *ngIf="isLoading$ | async" data-test-id="serp-news__loader">
-  Loading...
+<div class="query">
+  <serp-query></serp-query>
 </div>
-<div *ngIf="error$ | async as error" data-test-id="serp-news__error">
-  {{ error }}
-</div>
-<div *ngIf="results$ | async as results">
-  <div *ngFor="let result of results">
-    <serp-news-card [data]="result"></serp-news-card>
+<div class="content">
+  <div *ngIf="isLoading$ | async" data-test-id="serp-home__loader">
+    Loading...
+  </div>
+  <div
+    class="error"
+    *ngIf="error$ | async as error"
+    data-test-id="serp-news__error"
+  >
+    {{ error }}
+  </div>
+  <div class="grid" *ngIf="results$ | async as results">
+    <div *ngFor="let result of results">
+      <serp-news-card [data]="result"></serp-news-card>
+    </div>
   </div>
 </div>
