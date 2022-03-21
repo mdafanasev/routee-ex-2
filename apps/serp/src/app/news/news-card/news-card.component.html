@@ -1,0 +1,10 @@
+<div data-test-id="serp-news-card__title">{{ data.title }}</div>
+<a [href]="data.link" data-test-id="serp-news-card__link">{{ data.link }}</a>
+<div data-test-id="serp-news-card__snippet">{{ data.snippet }}</div>
+<div data-test-id="serp-news-card__date">{{ data.date }}</div>
+<div data-test-id="serp-news-card__source">{{ data.source }}</div>
+<img
+  data-test-id="serp-news-card__thumb"
+  [src]="data.thumbnail"
+  [alt]="data.title"
+/>

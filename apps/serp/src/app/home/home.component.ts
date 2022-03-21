@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { filter, of, startWith, switchMap } from 'rxjs';
+import { delay, of, startWith, switchMap } from 'rxjs';
 import { QueryService } from '../query/query.service';
 import { HomeService } from './home.service';
 
@@ -19,7 +19,9 @@ export class HomeComponent {
     })
   );
 
-  public readonly isLoading$ = this.homeService.isLoading$;
+  public readonly isLoading$ = this.homeService.isLoading$.pipe(
+    delay(0) // Forces async pipe to update value on first render
+  );
 
   public readonly error$ = this.homeService.error$;
 

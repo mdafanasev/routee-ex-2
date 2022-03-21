@@ -4,9 +4,7 @@ import { SearchResult as SearchResultResponse } from '@routee-serp/api-interface
 import { BehaviorSubject, catchError, EMPTY, Observable, tap } from 'rxjs';
 import { SearchResult } from './search-result.model';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class HomeService {
   private isLoadingState = new BehaviorSubject<boolean>(false);
 

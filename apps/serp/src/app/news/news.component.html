@@ -1,1 +1,12 @@
-<p>news works!</p>
+<serp-query></serp-query>
+<div *ngIf="isLoading$ | async" data-test-id="serp-news__loader">
+  Loading...
+</div>
+<div *ngIf="error$ | async as error" data-test-id="serp-news__error">
+  {{ error }}
+</div>
+<div *ngIf="results$ | async as results">
+  <div *ngFor="let result of results">
+    <serp-news-card [data]="result"></serp-news-card>
+  </div>
+</div>

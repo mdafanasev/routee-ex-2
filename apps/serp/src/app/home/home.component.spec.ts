@@ -111,17 +111,6 @@ describe('HomeComponent', () => {
     query$.next('foo');
     expect(homeService.getSearchReqults).toHaveBeenCalledWith('foo');
   });
-  it('should display loading status when isLoading$ is truthy', () => {
-    isLoading$.next(true);
-    fixture.detectChanges();
-    expect(po.loader).toBeTruthy();
-  });
-  it('should not display loading status when isLoading$ is falsy', () => {
-    isLoading$.next(true);
-    isLoading$.next(false);
-    fixture.detectChanges();
-    expect(po.loader).toBeFalsy();
-  });
   it('should display results from HomeService', () => {
     query$.next('foo');
     searchResults$.next(RESULTS);
