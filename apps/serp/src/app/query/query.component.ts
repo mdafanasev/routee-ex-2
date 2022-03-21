@@ -1,5 +1,11 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subject, takeUntil } from 'rxjs';
 import { QueryService } from './query.service';
 
 @Component({
@@ -8,7 +14,7 @@ import { QueryService } from './query.service';
   styleUrls: ['./query.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class QueryComponent implements OnInit {
+export class QueryComponent implements OnInit, OnDestroy {
   public readonly queryControl = new FormControl('', [Validators.required]);
 
   public readonly form = new FormGroup({ query: this.queryControl });
@@ -25,12 +31,21 @@ export class QueryComponent implements OnInit {
     return this.form.valid;
   }
 
+  private destroy$ = new Subject<void>();
+
   constructor(private readonly queryService: QueryService) {}
 
   public ngOnInit(): void {
-    this.queryService.value$.subscribe((value) => {
-      this.updateControlValue(value);
-    });
+    this.queryService.value$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((value) => {
+        this.updateControlValue(value);
+      });
+  }
+
+  public ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   public submit(): void {
