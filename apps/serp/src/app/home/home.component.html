@@ -1,2 +1,12 @@
 <serp-query></serp-query>
-<div *ngIf="query$ | async as query">Results for {{ query }}</div>
+<div *ngIf="isLoading$ | async" data-test-id="serp-home__loader">
+  Loading...
+</div>
+<div *ngIf="error$ | async as error" data-test-id="serp-home__error">
+  {{ error }}
+</div>
+<div *ngIf="results$ | async as results">
+  <div *ngFor="let result of results">
+    <serp-search-entry [data]="result"></serp-search-entry>
+  </div>
+</div>
