@@ -26,6 +26,18 @@ Create a single page application, which works with Google api. (https://serpapi.
 ## Testing
 
 To run unit tests just use `npm run test`;
+
+Or to test separate apps (back-end and front-end) and for more descriptive output, use `nx` commands:
+
+```
+nx test serp
+nx test api
+```
+
+You may need to install NX CLI globally:
+```
+npm i -g nx
+```
 ## Technical desicions
 
 ### Back-end app

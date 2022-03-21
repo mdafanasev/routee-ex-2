@@ -7,7 +7,7 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "start": "nx run-many --parallel --target=serve --projects=serp,api",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx run-many --parallel --target=test --projects=serp,api"
   },
   "private": true,
   "dependencies": {
