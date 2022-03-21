@@ -1,105 +1,44 @@
 
 
-# RouteeSerp
+# Test excersice #2 for Routee
 
-This project was generated using [Nx](https://nx.dev).
+This is a test excersice for a front-end assessment in Routee
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+## Original requirements
+Create a single page application, which works with Google api. (https://serpapi.com/search-api )
 
-🔎 **Smart, Fast and Extensible Build System**
+- You are free to use a javascript framework you feel most comfortable with. Although, an angular framework would be preferred.
+- There should be a navigation menu with 2 items: https://serpapi.com/, News.
+- In the first screen, “Home”, there should be a search field with the ability to search for the desired information.
+- In the “News” page, there should be tiles with the latest news.
+- The code behind these pages should be as close as it could be to production quality code.
+- It is expected that an adequate number of unit tests are implemented.
 
-## Quick Start & Documentation
+## How to run
 
-[Nx Documentation](https://nx.dev/angular)
+1. Clone the repo
+2. Get api key from [https://serpapi.com/](https://serpapi.com/)
+3. Put the key to `.env` file: `echo "SERPAPI_KEY=<api_key>" > .env`
+4. Install dependencies: `npm install`
+5. Run the app: `npm start`
+6. Go to [http://localhost:4200](http://localhost:4200) in your browser
 
-[10-minute video showing all Nx features](https://nx.dev/getting-started/intro)
+## Testing
 
-[Interactive Tutorial](https://nx.dev/tutorial/01-create-application)
+To run unit tests just use `npm run test`;
+## Technical desicions
 
-## Adding capabilities to your workspace
+### Back-end app
+I decided to implement back-end app mainly for security reasons. We have no possibility to keep API key safety on the front-end part.
+Back-end app is implemented as simple Nest.js application which just proxies requests to SerpAPI
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+### NX
+I use NX to bootstrap app fast, it provides all nessesary tooling: formatting, linters, tests and so on. Also it has a good support for Angular and Nest.js
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+## What can be improved
 
-Below are our core plugins:
+### Extract common code from `home` and `news` modules
 
-- [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
-
-There are also many [community plugins](https://nx.dev/community) you could add.
-
-## Generate an application
-
-Run `ng g @nrwl/angular:app my-app` to generate an application.
-
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `ng g @nrwl/angular:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are shareable across libraries and applications. They can be imported from `@routee-serp/mylib`.
-
-## Development server
-
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng g component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
-
-
-
-
-
-
-## ☁ Nx Cloud
-
-### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+These modules looks pretty similar, it seems a good idea to extract common functionality to some abstract services and components.
+But without understanding nearest future of this application (is it would be real app) it can be wrong way.
+Such decision can produce extra fragility of the application architucture and make independant changes in modules very hard.
