@@ -21,6 +21,13 @@ export class HomeService {
     this.errorState.next(null);
     return this.http.get<SearchResultResponse[]>(`/api/search?q=${query}`).pipe(
       tap(() => this.isLoadingState.next(false)),
+      tap((resp) => {
+        if (!resp.length) {
+          throw new HttpErrorResponse({
+            error: { message: 'There are no any results' },
+          });
+        }
+      }),
       catchError((error) => {
         this.isLoadingState.next(false);
         if (error instanceof HttpErrorResponse) {

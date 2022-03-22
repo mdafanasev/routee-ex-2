@@ -23,6 +23,13 @@ export class NewsService {
     this.errorState.next(null);
     return this.http.get<NewsEntryResponse[]>(`/api/news?q=${query}`).pipe(
       tap(() => this.isLoadingState.next(false)),
+      tap((resp) => {
+        if (!resp.length) {
+          throw new HttpErrorResponse({
+            error: { message: 'There are no any results' },
+          });
+        }
+      }),
       catchError((error) => {
         this.isLoadingState.next(false);
         if (error instanceof HttpErrorResponse) {
