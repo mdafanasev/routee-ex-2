@@ -1,4 +1,5 @@
 <img
+  *ngIf="data.thumbnail; else placeholder"
   class="image"
   data-test-id="serp-search-entry__thumb"
   [src]="data.thumbnail"
@@ -15,3 +16,7 @@
     {{ data.snippet }}
   </div>
 </div>
+
+<ng-template #placeholder>
+  <div></div>
+</ng-template>

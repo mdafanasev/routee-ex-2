@@ -4,6 +4,6 @@ export interface NewsEntry {
   link: string;
   source: string;
   date: string;
-  thumbnail: string;
+  thumbnail?: string;
   snippet: string;
 }

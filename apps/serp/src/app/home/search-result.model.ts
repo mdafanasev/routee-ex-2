@@ -3,6 +3,6 @@ export interface SearchResult {
   title: string;
   link: string;
   displayedLink: string;
-  thumbnail: string;
+  thumbnail?: string;
   snippet: string;
 }
